@@ -34,9 +34,7 @@
 
             </div> <!-- content -->
 
-            <footer class="footer">
-                {{ date('Y')}}  © E-commerce.
-            </footer>
+           @include('layouts.admin._footer')
 
         </div>
         <!-- End Right content here -->

@@ -12,12 +12,8 @@
         <script src="{{ asset ('assets/admin/js/jquery.scrollTo.min.js')}}"></script>
 
         <script src="{{ asset ('assets/admin/plugins/jquery-sparkline/jquery.sparkline.min.js')}}"></script>
-
-        <!-- Datatables-->
-        <script src="{{ asset ('assets/admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-        <script src="{{ asset ('assets/admin/plugins/datatables/dataTables.bootstrap.js')}}"></script>
-        <script src="{{ asset ('assets/admin/plugins/datatables/dataTables.responsive.min.j')}}s"></script>
-        <script src="{{ asset ('assets/admin/plugins/datatables/responsive.bootstrap.min.js')}}"></script>
+        @yiels('scripts')
+       
 
         <script src="{{ asset ('assets/admin/pages/dashborad.js')}}"></script>
 

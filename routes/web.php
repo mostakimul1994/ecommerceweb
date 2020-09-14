@@ -21,5 +21,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware' =>'auth'], fun
 Route::get('/dashboard',[DashboardController::class, 'dashboard'])->name('admin.dashboard');
 
 });
-Auth::routes();
+Auth::routes([
+	'register' => false, // Register Routes...
+    'reset' => false, // Reset Password Routes...
+    'verify' => false, // Email Verification Routes...
+]);
 

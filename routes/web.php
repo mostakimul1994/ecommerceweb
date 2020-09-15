@@ -18,10 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware' =>'auth'], function(){
+Route::group(['prefix'=>'admin','middleware' =>'auth'], function(){
 Route::get('/dashboard',[DashboardController::class, 'dashboard'])->name('admin.dashboard');
 Route::resource('/user',UserController::class);
 });
+
 Auth::routes([
 	'register' => false, // Register Routes...
     'reset' => false, // Reset Password Routes...

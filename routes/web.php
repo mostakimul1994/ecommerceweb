@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +20,7 @@ Route::get('/', function () {
 
 Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware' =>'auth'], function(){
 Route::get('/dashboard',[DashboardController::class, 'dashboard'])->name('admin.dashboard');
-
+Route::resource('/user',UserController::class);
 });
 Auth::routes([
 	'register' => false, // Register Routes...

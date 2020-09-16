@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Imports\UsersImport;
+use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        echo "string";
+        $data['users'] = User::orderBy('id','desc')->paginate(2);
+        return view('admin.user.index',$data);
     }
 
     /**

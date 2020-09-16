@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Models\User;
 use App\Http\Controllers\Controller;
+use App\Imports\UsersImport;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -24,6 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
+
         return view('admin.user.create');
     }
 
@@ -35,7 +37,32 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        echo "string";
+        // dd($request->all());
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|confirmed',
+            'image' => 'mimes:jpeg,png|max:2048',
+        ]);
+        //data validation 
+
+        $data = $request->except(['_token', 'password', 'image']);
+        $data['password'] = bcrypt($request->password);
+
+        //password bcrypt 
+
+        if ($request->hasFile('image')) {
+
+            $file = $request->file('image');
+            $path = 'image/user';
+            $file->move($path, $file->getClientOriginalName());
+            $data['image'] = $path . '/' . $file->getClientOriginalName();
+        }
+
+        User::create($data);
+        session()->flash('message', 'Admin created successfully');
+        return redirect()->route('user.index');
+        //alert message 
     }
 
     /**

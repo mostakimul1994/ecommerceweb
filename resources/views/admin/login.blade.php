@@ -12,7 +12,7 @@
     <link href="{{ asset ('assets/admin/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('assets/admin/css/icons.css')}}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('assets/admin/css/style.css')}}" rel="stylesheet" type="text/css">
-    
+   <!--  all link up please -->
 </head>
 
 <body>
@@ -30,6 +30,7 @@
 
                 <form class="form-horizontal m-t-20" action="{{ route ('login')}}" method="post">
                     @csrf
+                    <!-- say action and method -->
                     <div class="form-group">
                         <div class="col-xs-12">
                             <input name="email" value="{{ old('email') }}" class="form-control" type="email" required="" placeholder="Email">
@@ -39,6 +40,7 @@
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
+                        <!-- use for Error message -->
                     </div>
 
 

@@ -17,6 +17,7 @@
 <!-- Create Admin List  -->
 <div class="row">
 	<div class="col-md-12">
+		@include('layouts.admin._message')
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<h3 class="panel-title">Admin Lists</h3>
@@ -44,19 +45,20 @@
 										<td><img src="{{ asset($user->image)}}" alt="photo" width="10%"></td>
 
 										<td>
-											<button class="btn btn-info"><a  href="{{ route('user.edit',$user->id) }}">Edit</a></button>
-											<form action="{{ route ('user.destroy',$user->id) }}" method="post" enctype="multipart/form-data">
+											<a href="{{ route('user.edit',$user->id) }}" class="btn btn-primary btn-sm">Edit</a>
+											<form action="{{ route('user.destroy',$user->id) }}" class="d-inline-block" method="post">
 												@csrf
 												@method('delete')
-												<button class="btn btn-danger" onclick="return confirm('Are You Sure to Delete ?')" >Delete</button>
-
+												<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you confirm?')">Delete</button>
 											</form>
 										</td>
 									</tr>
 									@endforeach
 								</tbody>
 							</table>
-							{!! $users->render() !!}
+							<div class="text-center">
+								{!! $users->render() !!}
+							</div>
 						</div>
 					</div>
 				</div>

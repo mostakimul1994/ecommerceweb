@@ -32,7 +32,7 @@
                                 <a href="javascript:void(0);" class="waves-effect"><i class="ti-agenda"></i> <span>Products</span> <span class="pull-right"><i class="mdi mdi-plus"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="#">Products Lists</a></li>
-                                    <li><a href="#">Create New Products</a></li>
+                                    <li><a href="{{ route ('product.create')}}">Create New Products</a></li>
                                     <!-- create route  -->
                                 </ul>
                             </li>

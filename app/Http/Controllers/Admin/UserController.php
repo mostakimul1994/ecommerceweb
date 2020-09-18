@@ -120,7 +120,6 @@ class UserController extends Controller
                 }
         }
 
-
         $user->update($data);
         session()->flash('message', 'Admin Update successfully');
         return redirect()->route('user.index');

@@ -7,6 +7,8 @@
         @enderror
     </div>
 </div>
+
+
 <div class="form-group">
     <label class="col-md-2 control-label" for="example-email">Email</label>
     <div class="col-md-10">
@@ -16,6 +18,7 @@
         @enderror
     </div>
 </div>
+
 @if(!isset($user))
     <div class="form-group">
         <label class="col-md-2 control-label">Password</label>
@@ -33,6 +36,7 @@
         </div>
     </div>
 @endif
+
 <div class="form-group">
     <label class="col-md-2 control-label">Image</label>
     <div class="col-md-10">
@@ -40,7 +44,7 @@
         @error('image')
         <div class="text-danger">{{ $message }}</div>
         @enderror
-        
+
         @if(isset($user) && $user->image != null)
             <img src="{{ asset($user->image) }}" width="20%">
         @endif
